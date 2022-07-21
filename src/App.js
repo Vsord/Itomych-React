@@ -1,5 +1,5 @@
 import './App.css';
-import Request from './Components/Request.jsx/Request';
+import Request from './Components/Request/Request';
 
 function App() {
   return (

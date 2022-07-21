@@ -17,8 +17,9 @@ class Request extends React.Component {
             .then(data => this.setState({
                 isLoaded: true,
                 items: data,
-            }));
-
+            })).catch(err => {
+                console.error("Something went wrong", err);
+            });
     };
 
     render() {
