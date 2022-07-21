@@ -4,7 +4,7 @@ import './Data.css'
 class Data extends React.Component {
     render() {
         const finalDataList = this.props.data.map(item => {
-            return <li className="list">{JSON.stringify(item)}</li>
+            return <li className="list">{JSON.stringify(item.body)}</li>
         });
         return (
             <div>

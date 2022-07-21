@@ -1,5 +1,6 @@
 import React from 'react';
 import Data from '../Data/Data';
+import './Request.css'
 
 class Request extends React.Component {
     constructor(props) {
@@ -21,7 +22,14 @@ class Request extends React.Component {
     };
 
     render() {
-        const { items } = this.state;
+        const { isLoaded, items } = this.state;
+        if (!isLoaded) {
+            return (
+                <div className='preloader'>
+                    is Loading...
+                </div>
+            )
+        }
         return (
             <div>
                 <Data data={items} />
