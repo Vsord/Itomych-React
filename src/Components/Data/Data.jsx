@@ -3,13 +3,16 @@ import './Data.css'
 
 class Data extends React.Component {
     render() {
-        const finalDataList = this.props.data.map(item => {
-            return <li className="list">{JSON.stringify(item.body)}</li>
+        const dataList = this.props.data.map(item => {
+            return <li className="list">
+                <h3>{JSON.stringify(item.title)}</h3>
+                {JSON.stringify(item.body)}
+            </li>
         });
         return (
             <div>
                 <ul>
-                    {finalDataList}
+                    {dataList}
                 </ul>
             </div>
         );

@@ -27,7 +27,7 @@ class Request extends React.Component {
         if (!isLoaded) {
             return (
                 <div className='preloader'>
-                    is Loading...
+                    Loading...
                 </div>
             )
         }
