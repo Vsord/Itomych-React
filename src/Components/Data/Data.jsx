@@ -6,7 +6,7 @@ class Data extends React.Component {
         const dataList = this.props.data.map(item => {
             return <li className="list">
                 <h3>{JSON.stringify(item.title)}</h3>
-                {JSON.stringify(item.body)}
+                <p>{JSON.stringify(item.body)}</p>
             </li>
         });
         return (
