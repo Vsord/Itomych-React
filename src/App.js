@@ -1,10 +1,10 @@
 import './App.css';
-import Request from './Components/Request/Request';
+import HookRequest from './Components/Request/Request';
 
 function App() {
   return (
     <div className="App">
-      <Request />
+      <HookRequest />
     </div>
   );
 }

@@ -1,22 +1,30 @@
 import React from "react";
 import './Data.css'
 
-class Data extends React.Component {
-    render() {
-        const dataList = this.props.data.map(item => {
-            return <li className="list">
-                <h3>{JSON.stringify(item.title)}</h3>
-                <p>{JSON.stringify(item.body)}</p>
-            </li>
-        });
+const Data = (props) => {
+    const dataList = props.data.filter(obj => {
+        if (obj.id <= 10) {
+            return obj;
+        }}
+    );
+    const newData = dataList.map(item => {
         return (
-            <div>
-                <ul>
-                    {dataList}
-                </ul>
-            </div>
-        );
-    };
+            < li className="list" >
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+            </li >
+        )
+    })
+
+    return (
+        <div>
+            <ul>
+                {newData};
+            </ul>
+        </div>
+    );
 };
 
 export default Data;
+
+
