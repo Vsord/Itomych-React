@@ -1,10 +1,10 @@
-import './App.css';
-import HookRequest from './Components/Request/Request';
+import Form from './Components/Form/Form'
+import styles from './App.module.scss';
 
 function App() {
   return (
-    <div className="App">
-      <HookRequest />
+    <div className={styles.App}>
+      <Form />
     </div>
   );
 }
