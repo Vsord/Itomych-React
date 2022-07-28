@@ -1,11 +1,19 @@
-import Form from './Components/Form/Form'
+import Form from './Components/Form/Form';
 import styles from './App.module.scss';
+import Request from './Components/Request/Request';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 
 function App() {
   return (
-    <div className={styles.App}>
-      <Form />
-    </div>
+    <BrowserRouter>
+      <div className={styles.App}>
+        <Routes>
+          <Route path='/' element={<Form />}/> 
+          <Route path='/news' element={<Request />}/> 
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

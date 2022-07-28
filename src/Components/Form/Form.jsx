@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import styles from './Form.module.scss'
+import { NavLink } from "react-router-dom";
 
 const Form = () => {
     const [state, setState] = useState({
@@ -24,14 +25,16 @@ const Form = () => {
             <form className={styles.formWrapper_form} onSubmit={formSubmit}>
                 <div className={styles.formWrapper_email}>
                     <label htmlFor="email">Email:</label>
-                    <input type="text" id="email" onChange={stateChange}/>
+                    <input type="email" id="email" onChange={stateChange} />
                 </div>
                 <div className={styles.formWrapper_password}>
                     <label htmlFor="password">Password:</label>
-                    <input type="text" id="password" onChange={stateChange}/>
+                    <input type="text" id="password" onChange={stateChange} />
                 </div>
                 <div className={styles.formWrapper_logInButton}>
-                    <button type="submit">Log In</button>
+                    <NavLink to='/news'>
+                        <button type="submit">Log In</button>
+                    </NavLink>
                 </div>
             </form>
         </div>

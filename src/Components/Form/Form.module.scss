@@ -1,33 +1,44 @@
-.formWrapper_form {
-    .formWrapper_email {
-        padding: 50px;
-    
-        input {
-            border-radius: 5px;
-            height: 20px;
+.formWrapper {
+    width: 30%;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 225px;
+    text-align: center;
+    background-color: whitesmoke;
+    border-radius: 23px;
+
+    .formWrapper_form {
+        .formWrapper_email {
+            padding: 50px;
+
+            input {
+                border-radius: 5px;
+                height: 20px;
+                margin-right: 28px;
+            }
         }
-    }
-    
-    .formWrapper_password {
-        input {
-            height: 20px;
-            border-radius: 5px;
-            margin-right: 28px;
+
+        .formWrapper_password {
+            input {
+                height: 20px;
+                border-radius: 5px;
+                margin-right: 58px;
+            }
         }
-    }
-    
-    .formWrapper_logInButton {
-        margin-top: 60px;
-    
-        button {
-            width: 80px;
-            height: 30px;
-            border-radius: 5px;
-            font-size: 18px;
-        }
-    
-        button:active {
-            background-color: red;
+
+        .formWrapper_logInButton {
+            margin-top: 60px;
+
+            button {
+                width: 80px;
+                height: 30px;
+                border-radius: 5px;
+                font-size: 18px;
+            }
+
+            button:active {
+                background-color: red;
+            }
         }
     }
 }
