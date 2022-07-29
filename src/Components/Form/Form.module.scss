@@ -1,31 +1,60 @@
 .formWrapper_form {
+    width: 30%;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 250px;
+    text-align: center;
+    background-color: whitesmoke;
+    border-radius: 23px;
+
     .formWrapper_email {
-        padding: 50px;
-    
+        padding: 40px;
+        position: relative;
+
+        .email_error {
+            color: red;
+            font-size: 15px;
+            position: absolute;
+            top: 10px;
+            left: 60px;
+        }
+
         input {
             border-radius: 5px;
             height: 20px;
+            margin-right: 20px;
         }
     }
-    
+
     .formWrapper_password {
+        position: relative;
+
+
         input {
             height: 20px;
             border-radius: 5px;
-            margin-right: 28px;
+            margin-right: 49px;
+        }
+
+        .password_error {
+            color: red;
+            font-size: 15px;
+            position: absolute;
+            bottom: 37px;
+            left: 30px;
         }
     }
-    
+
     .formWrapper_logInButton {
-        margin-top: 60px;
-    
+        margin-top: 50px;
+
         button {
             width: 80px;
             height: 30px;
             border-radius: 5px;
             font-size: 18px;
         }
-    
+
         button:active {
             background-color: red;
         }
