@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Data from '../Data/Data';
-import './Request.css'
+import './HookRequest.css'
 
 const HookRequest = () => {
     const [state, setState] = useState({
         isLoaded: false,
-        items: [],
+        dataArray: [],
     });
 
     useEffect(() => {
@@ -20,14 +20,14 @@ const HookRequest = () => {
             })
             .then(data => setState({
                 isLoaded: true,
-                items: data,
+                dataArray: data,
             }))
             .catch(error => {
                 console.error(error.message);
             });
     }, []);
 
-    const { isLoaded, items } = state;
+    const { isLoaded, dataArray } = state;
     if (!isLoaded) {
         return (
             <div className='preloader'>
@@ -37,7 +37,7 @@ const HookRequest = () => {
     };
     return (
         <div>
-            <Data data={items} />
+            <Data data={dataArray} />
         </div>
     );
 };

@@ -2,24 +2,22 @@ import React from "react";
 import './Data.css'
 
 const Data = (props) => {
-    const dataList = props.data.filter(obj => {
+    let dataList = props.data.map(obj => {
         if (obj.id <= 10) {
-            return obj;
-        }}
-    );
-    const newData = dataList.map(item => {
-        return (
-            < li className="list" >
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-            </li >
-        )
-    })
+            return (
+                < li key={obj.id} className="list" >
+                    <h3>{obj.title}</h3>
+                    <p>{obj.body}</p>
+                    <p>{obj.id}</p>
+                </li >
+            )
+        }
+    });
 
     return (
         <div>
             <ul>
-                {newData};
+                {dataList}
             </ul>
         </div>
     );
