@@ -1,5 +1,6 @@
 import React from "react";
 import styles from './Data.module.scss'
+import Header from '../Header/Header'
 import { NavLink } from "react-router-dom";
 
 const Data = (props) => {
@@ -18,6 +19,7 @@ const Data = (props) => {
 
     return (
         <div>
+            <Header />
             <ul>
                 {dataList}
             </ul>
