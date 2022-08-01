@@ -1,25 +1,25 @@
 import React from "react";
 import styles from './Data.module.scss'
+import { NavLink } from "react-router-dom";
 
 const Data = (props) => {
-    const dataList = props.data.filter(obj => {
+    let dataList = props.data.map(obj => {
         if (obj.id <= 10) {
-            return obj;
-        }}
-    );
-    const newData = dataList.map(item => {
-        return (
-            < li className={styles.list} >
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-            </li >
-        )
-    })
+            return (
+                < li key={obj.id} className={styles.list} >
+                    <NavLink to={'/news/' + obj.id}>
+                        <h3>{obj.title}</h3>
+                    </NavLink>
+                    <p>{obj.body}</p>
+                </li >
+            )
+        }
+    });
 
     return (
         <div>
             <ul>
-                {newData};
+                {dataList}
             </ul>
         </div>
     );
