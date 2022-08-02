@@ -1,9 +1,9 @@
 import React from "react";
-import styles from './Data.module.scss'
+import styles from './News.module.scss'
 import Header from '../Header/Header'
 import { NavLink } from "react-router-dom";
 
-const Data = (props) => {
+const News = (props) => {
     let dataList = props.data.map(obj => {
         if (obj.id <= 10) {
             return (
@@ -12,6 +12,8 @@ const Data = (props) => {
                         <h3>{obj.title}</h3>
                     </NavLink>
                     <p>{obj.body}</p>
+                    <button>Edit</button>
+                    <button>Save</button>
                 </li >
             )
         }
@@ -27,4 +29,4 @@ const Data = (props) => {
     );
 };
 
-export default Data;
+export default News;

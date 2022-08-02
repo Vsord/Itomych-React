@@ -1,11 +1,9 @@
 import {React, useState, useEffect} from 'react';
 import Form from './Components/Form/Form';
 import styles from './App.module.scss';
-import Data from './Components/Data/Data';
-import Page from './Components/Data/Page/Page'
+import News from './Components/News/News';
+import Page from './Components/News/Page/Page'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-
 
 function App() {
   const [state, setState] = useState({
@@ -41,20 +39,14 @@ function App() {
     );
   };
 
- let path = state.items.filter(obj => {
-    if (obj.id <= 1) {
-      return obj.id;
-    }
- });
-
   return (
     <BrowserRouter>
       <div className={styles.App}>
         <Routes>
           <Route path='/' element={<Form />} />
-          <Route path='/news' element={<Data data={items} />} />
-          <Route path={'/news/' + path} element={<Page data={items} />}/>
-        </Routes> 
+          <Route path='/news' element={<News data={items} />} />
+          <Route path={'/news/:id'} element={<Page data={items} />}/>
+        </Routes>
       </div>
     </BrowserRouter>
   );
