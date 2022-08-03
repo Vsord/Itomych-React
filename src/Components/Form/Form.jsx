@@ -22,7 +22,7 @@ const Form = () => {
     const emailStateChange = (e) => {
         setEmail(e.target.value);
         const emailRegExp = /^(.+)@(.+)$/
-        if (!emailRegExp.test(e.target.value)) {
+        if (!e.target.value.match(emailRegExp)) {
             setEmailErrorMessage("Invalid email: Must contain a '@' symbol");
         } else {
             setEmailErrorMessage('');

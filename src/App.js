@@ -39,13 +39,17 @@ function App() {
     );
   };
 
+  let pageComponentMapping = items.map(item => {
+        return <Route path={'/news/' + item.id} element={<Page title={item.title} body={item.body} id={item.id} />}/>
+  })
+
   return (
     <BrowserRouter>
       <div className={styles.App}>
         <Routes>
           <Route path='/' element={<Form />} />
           <Route path='/news' element={<News data={items} />} />
-          <Route path={'/news/:id'} element={<Page data={items} />}/>
+          {pageComponentMapping}
         </Routes>
       </div>
     </BrowserRouter>
