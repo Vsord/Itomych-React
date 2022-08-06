@@ -1,17 +1,18 @@
-import React, { useEffect } from "react";
+import React, {useContext, useEffect} from "react";
 import { useState } from "react";
 import styles from './Form.module.scss'
 import { NavLink } from 'react-router-dom'
+import emailContext from "../../context/context";
 
 const Form = () => {
-    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [emailErrorMessage, setEmailErrorMessage] = useState('');
     const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
     const [isValid, setIsValid] = useState(false);
+    const {email, setEmail} = useContext(emailContext);
 
     useEffect(() => {
-        if (emailErrorMessage === '' && passwordErrorMessage === '') {
+        if (!emailErrorMessage && !passwordErrorMessage) {
             setIsValid(false)
         } else {
             setIsValid(true)
@@ -23,7 +24,7 @@ const Form = () => {
         setEmail(e.target.value);
         const emailRegExp = /^(.+)@(.+)$/
         if (!e.target.value.match(emailRegExp)) {
-            setEmailErrorMessage("Invalid email: Must contain a '@' symbol");
+            setEmailErrorMessage("Invalid email adress: Must contain '@' symbol");
         } else {
             setEmailErrorMessage('');
         }
@@ -46,28 +47,26 @@ const Form = () => {
         <form className={styles.formWrapper_form} onSubmit={formSubmit}>
             <div className={styles.formWrapper_email}>
                 <div className={styles.email_error}>{emailErrorMessage}</div>
-                <label htmlFor="email">Email:</label>
                 <input
                     name="email"
                     type="text"
                     id="email"
                     value={email}
                     onChange={emailStateChange}
-                    placeholder='Type your email...'
                     required
                 />
+                <label htmlFor="email">Email</label>
             </div>
             <div className={styles.formWrapper_password}>
                 <div className={styles.password_error}>{passwordErrorMessage}</div>
-                <label htmlFor="password">Password:</label>
                 <input
                     type="password"
                     id="password"
                     value={password}
                     onChange={passwordStateChange}
-                    placeholder='Type your password...'
                     required
                 />
+                <label htmlFor="password">Password</label>
             </div>
             <div className={styles.formWrapper_logInButton}>
                 <NavLink to='/news'>

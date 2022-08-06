@@ -1,0 +1,26 @@
+.header {
+    background: linear-gradient(#141e30, #243b55);
+    text-align: right;
+    height: 70px;
+
+    button {
+        width: 87px;
+        height: 30px;
+        border-radius: 5px;
+        font-size: 21px;
+        margin: 16px 50px 0px 0px;
+        background: aqua;
+        border: none;
+    }
+
+    button:active {
+        background-color: red;
+    }
+
+    span {
+        float: left;
+        margin-top: 19px;
+        margin-left: 53px;
+        color: #fff;
+    }
+}
