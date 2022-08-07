@@ -2,6 +2,7 @@ import React, {useContext, useEffect} from "react";
 import { useState } from "react";
 import styles from './Form.module.scss'
 import { NavLink } from 'react-router-dom'
+import emailContext from "../../context/context";
 
 
 const Form = () => {
@@ -9,7 +10,7 @@ const Form = () => {
     const [emailErrorMessage, setEmailErrorMessage] = useState('');
     const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
     const [isValid, setIsValid] = useState(false);
-    const [email, setEmail] = useState('');
+    const {email, setEmail} = useContext(emailContext);
 
     useEffect(() => {
         if (!emailErrorMessage && !passwordErrorMessage) {

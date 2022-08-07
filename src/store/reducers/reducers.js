@@ -7,18 +7,18 @@ const initialState = {
     data: [],
 };
 
+/// Reducer //////////
 export const reducers = (state = initialState, action) => {
     switch (action.type) {
         case FETCH_REQUEST:
             return {
                 ...state,
-                isLoaded: false
+                isLoaded: false,
             };
         case FETCH_SUCCESS:
             return {
-                ...state,
+               data: action.payload,
                 isLoaded: true,
-                data: [...state.data, ...action.payload]
             };
         case FETCH_FAILURE:
             return {

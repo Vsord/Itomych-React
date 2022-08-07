@@ -9,43 +9,35 @@ import {store} from "./store/store";
 import {fetchData} from "./store/fetchData/fetchData";
 
 function App() {
+    const data = useSelector(state => state.reducers.data);
 
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchData());
     },[]);
 
-    console.log(store.getState());
+    // const {isLoaded} = store;
+    // if (!isLoaded) {
+    //     return (
+    //         <div className={styles.preloader}>
+    //             Loading...
+    //         </div>
+    //     );
+    // };
 
 
 
-
-
-
-
-
-    const {isLoaded} = store;
-    if (!isLoaded) {
-        return (
-            <div className={styles.preloader}>
-                Loading...
-            </div>
-        );
-    };
-
-
-
-    // let pageComponentMapping = .map(item => {
-    //     return <Route path={'/news/' + item.id} element={<Page title={item.title} body={item.body} id={item.id}/>}/>
-    // })
+    let pageComponentMapping = data.map(item => {
+        return <Route path={'/news/' + item.id} element={<Page title={item.title} body={item.body} id={item.id}/>}/>
+    })
 
     return (
         <BrowserRouter>
             <div className={styles.App}>
                 <Routes>
                     <Route path='/' element={<Form/>}/>
-                    <Route path='/news' element={<News data={fetchData()} />}/>
-                    {/*{pageComponentMapping}*/}
+                    <Route path='/news' element={<News data={data} />}/>
+                    {pageComponentMapping}
                 </Routes>
             </div>
         </BrowserRouter>

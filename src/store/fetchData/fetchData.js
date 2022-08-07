@@ -1,8 +1,9 @@
-import {actionRequest, actionSuccess} from "../actions/actions";
+import { actionRequest, actionSuccess } from "../actions/actions";
 
 
 export const fetchData = () => {
     return async (dispatch) => {
+        dispatch(actionRequest)
         await fetch("https://jsonplaceholder.typicode.com/posts")
             .then(res => {
                 if (res.status >= 200 && res.status < 300) {

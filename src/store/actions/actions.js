@@ -8,18 +8,19 @@ export const FETCH_FAILURE = 'FETCH_FAILURE';
 export const actionRequest = (payload) => {
     return {
         type: FETCH_REQUEST,
+        payload
     }
 };
 export const actionSuccess = (payload) => {
     return {
         type: FETCH_SUCCESS,
-        payload: [],
+        payload
     }
 };
-export const actionFailure = (error) => {
+export const actionFailure = (err) => {
     return {
         type: FETCH_FAILURE,
-        error: 'Something went wrong...',
+        err
     }
 };
 
