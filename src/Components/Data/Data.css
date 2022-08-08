@@ -16,3 +16,19 @@
     width: 50%;
     box-shadow: 1px 3px 10px 1px rgb(0 0 0 / 20%);
 }
+
+.textArea_button_block {
+    text-align: center;
+}
+
+.textArea_button_block .textArea_edit_botton {
+    margin-right: 20px;
+    width: 80px;
+    height: 35px;
+}
+
+.textArea_button_block .textArea_save_botton {
+    margin-left: 20px;
+    width: 80px;
+    height: 35px;
+}
