@@ -5,13 +5,13 @@ import './TextArea.css'
 const TextArea = (props) => {
 
     const changeInnerText = (e) => {
-        props.setText(e.target.value)
+        props.setTitleText(e.target.value)
     }
 
     return (
         <textarea
             className='textArea'
-            defaultValue={props.innerText}
+            defaultValue={props.titleText}
             onChange={changeInnerText}
         />
     )

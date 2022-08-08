@@ -1,22 +1,29 @@
 import React from 'react';
 import './OnClickButtons.css';
-import TextArea from '../TextArea/TextArea'
+import TextArea from '../TitleTextArea/TextArea';
+import BodyTextArea from '../BodyTextArea/BodyTextArea';
 
 
 const OnClickButtons = (props) => {
-    const addTextArea = () => {
-        props.setD(<TextArea innerText={props.innerText} setText={props.setText}/>)
+
+    const addBodyTextArea = () => {
+        props.setD(<BodyTextArea bodyText={props.bodyText} setBodyText={props.setBodyText}/>)
+    };
+
+    const addTitleTextArea = () => {
+        props.setD(<TextArea titleText={props.titleText} setTitleText={props.setTitleText}/>)
     }
 
     const saveTextAreaData = () => {
-        props.setT(props.innerText);
+        props.setT(props.titleText);
+        props.setB(props.bodyText);
         props.setD(props.dataList);
-        console.log(props.innerText);
     }
 
     return (
         <div className='textArea_button_block'>
-            <button onClick={addTextArea} className='textArea_edit_botton'>Edit</button>
+            <button onClick={addTitleTextArea} className='textArea_edit_botton'>Edit Title</button>
+            <button onClick={addBodyTextArea} className='textArea_edit_botton'>Edit Body</button>
             <button onClick={saveTextAreaData} className='textArea_save_botton'>Save</button>
         </div>
     )
