@@ -1,14 +1,13 @@
-import {FETCH_SUCCESS} from '../actions/actions'
-import {FETCH_REQUEST} from "../actions/actions";
-import {FETCH_FAILURE} from "../actions/actions";
+import {FETCH_SUCCESS, FETCH_REQUEST, FETCH_FAILURE} from '../actions/fetchAction';
 
 const initialState = {
     isLoaded: false,
     data: [],
+    error: '',
 };
 
 /// Reducer //////////
-export const reducers = (state = initialState, action) => {
+export const fetchReducer = (state = initialState, action) => {
     switch (action.type) {
         case FETCH_REQUEST:
             return {
@@ -17,11 +16,13 @@ export const reducers = (state = initialState, action) => {
             };
         case FETCH_SUCCESS:
             return {
-               data: action.payload,
+                ...state,
                 isLoaded: true,
+               data: action.payload,
             };
         case FETCH_FAILURE:
             return {
+                ...state,
                 error: action.error
             };
         default:

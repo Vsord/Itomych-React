@@ -1,13 +1,14 @@
-import React, {useContext} from "react";
+import React from "react";
 import styles from './Header.module.scss'
 import { NavLink } from "react-router-dom";
-import emailContext from "../../context/context";
+import { useSelector } from "react-redux";
+
 
 const Header = () => {
-    const {email, setEmail} = useContext(emailContext);
+    const mail = useSelector(state => state.formReducer.mail);
     return (
         <div className={styles.header}>
-              <span> Your email: {email}</span>
+              <span> Your email: {mail}</span>
                 <NavLink to="/">
                     <button>Log Out</button>
                 </NavLink>

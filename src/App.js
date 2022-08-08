@@ -5,27 +5,26 @@ import News from './components/News/News';
 import Page from './components/News/Page/Page'
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
-import {store} from "./store/store";
 import {fetchData} from "./store/fetchData/fetchData";
 
-function App() {
-    const data = useSelector(state => state.reducers.data);
 
+function App() {
+    const data = useSelector(state => state.fetchReducer.data);
+    const loader = useSelector(state => state.fetchReducer.isLoaded);
     const dispatch = useDispatch();
+
     useEffect(() => {
         dispatch(fetchData());
     },[]);
 
-    // const {isLoaded} = store;
-    // if (!isLoaded) {
-    //     return (
-    //         <div className={styles.preloader}>
-    //             Loading...
-    //         </div>
-    //     );
-    // };
 
-
+    if (!loader) {
+        return (
+            <div className={styles.preloader}>
+                Loading...
+            </div>
+        );
+    };
 
     let pageComponentMapping = data.map(item => {
         return <Route path={'/news/' + item.id} element={<Page title={item.title} body={item.body} id={item.id}/>}/>

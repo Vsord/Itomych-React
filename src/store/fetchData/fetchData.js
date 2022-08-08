@@ -1,4 +1,4 @@
-import { actionRequest, actionSuccess } from "../actions/actions";
+import {actionFailure, actionRequest, actionSuccess} from "../actions/fetchAction";
 
 
 export const fetchData = () => {
@@ -9,13 +9,12 @@ export const fetchData = () => {
                 if (res.status >= 200 && res.status < 300) {
                     return res.json();
                 } else {
-                    let err = new Error('Something went wrong..');
-                    throw err
+                    dispatch(actionFailure('Someting went wrong...'))
                 }
             })
             .then(data => dispatch(actionSuccess(data)))
-            .catch(error => {
-                console.error(error.message);
+            .catch(err => {
+                console.error(err);
             })
     };
 };

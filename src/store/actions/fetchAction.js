@@ -20,7 +20,7 @@ export const actionSuccess = (payload) => {
 export const actionFailure = (err) => {
     return {
         type: FETCH_FAILURE,
-        err
+        error: err
     }
 };
 
